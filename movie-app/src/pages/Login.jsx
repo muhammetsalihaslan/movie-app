@@ -5,10 +5,10 @@ const Login = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const handleSubmit = (e) => {
+    const handleLogin = (e) => {
       e.preventDefault();
       console.log(email, password);
-    }
+    };
     return(
         <div className="d-flex justify-content-center">
             <div className="form-image d-none d-md-block">
@@ -17,7 +17,7 @@ const Login = () => {
             </div>
             <div className="register-form">
                  <h1 className="form-title display-3">Login</h1>
-                 <form id="Login" onSubmit={handleSubmit}>
+                 <form id="Login" onSubmit={handleLogin}>
                     
 
                    
@@ -50,18 +50,22 @@ const Login = () => {
 
                     </div>
 
+                    <div className="link">Forgot Password?</div>
+
                     <input 
                     type="submit" 
                     className="btn btn-primary form-control"
                     value="Login"/>
 
-                    <input 
-                    type="submit" 
-                    className="btn btn-primary form-control"
-                    value="Continue with Google"/>
                     
                 
                 </form>
+
+                  <button className="btn btn-primary form-control">
+                   Continue with Google 
+                  </button> 
+
+                
             </div>
 
         </div>
