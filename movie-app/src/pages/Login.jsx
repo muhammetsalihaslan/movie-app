@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
-
+import { signIn } from '../auth/firebase.js';
+import { useNavigate} from 'react-router-dom'
 const Login = () => {
     
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
+    const navigate = useNavigate();
+    
+    
     const handleLogin = (e) => {
       e.preventDefault();
+      signIn(email, password, navigate)
       console.log(email, password);
     };
+    
     return(
         <div className="d-flex justify-content-center">
             <div className="form-image d-none d-md-block">
