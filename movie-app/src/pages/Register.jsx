@@ -1,16 +1,21 @@
 
 import React, { useState } from 'react';
+import { createUser } from '../auth/firebase';
+
 
 const Register = () => {
     const [firstName, setFirstName]= useState()
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    
 
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(firstName, lastName);
-    }
+      createUser(email, password);
+
+    };
     return(
         <div className="d-flex justify-content-center">
             <div className="form-image d-none d-md-block">
