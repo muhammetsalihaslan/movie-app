@@ -11,7 +11,7 @@ const Login = () => {
     const handleLogin = (e) => {
       e.preventDefault();
       signIn(email, password, navigate)
-      console.log(email, password);
+    //   console.log(email, password);
     };
     
     return(
