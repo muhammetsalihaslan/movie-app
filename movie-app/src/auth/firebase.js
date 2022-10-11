@@ -4,7 +4,9 @@ import { getAuth ,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  updateProfile } from "firebase/auth";
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -73,4 +75,14 @@ export const logOut = () => {
   signOut(auth);
 };
 
+
+export const signUpProvider = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    console.log(result);
+  }).catch((error) => {
+     console.log(error);
+  });
+}
 
