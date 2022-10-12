@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import MovieCard from '../components/MovieCard';
 
 const API_KEY = `0db9423930517eebdf7f4f1ffbd6b266`
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
@@ -17,7 +18,7 @@ const Main = () => {
 
     const getMovies = (API) => {
         setLoading(true)
-        axios.get(API).then((res) => console.log(res.data.results)).catch((err) => console.log(err)).finally(() => setLoading(false))
+        axios.get(API).then((res) => setMovies(res.data.results)).catch((err) => console.log(err)).finally(() => setLoading(false))
     };
     
     return(
@@ -27,7 +28,7 @@ const Main = () => {
             <span className="sr-only">Loading...</span>
           </div>
         ) : (
-          movies?.map((movie) => null)
+          movies?.map((movie) => <MovieCard key={movie.id} {...movies}/>)
         )}
         </div>
     ) 
