@@ -28,7 +28,7 @@ const Main = () => {
             <span className="sr-only">Loading...</span>
           </div>
         ) : (
-          movies?.map((movie) => <MovieCard key={movie.id} {...movies}/>)
+          movies?.map((movie) => <MovieCard key={movie.id} {...movie}/>)
         )}
         </div>
     ) 
