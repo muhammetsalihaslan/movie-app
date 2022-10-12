@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { signIn } from '../auth/firebase.js';
+import { signIn, signUpProvider } from '../auth/firebase.js';
 import { useNavigate} from 'react-router-dom'
 const Login = () => {
     
@@ -13,6 +13,10 @@ const Login = () => {
       signIn(email, password, navigate)
     //   console.log(email, password);
     };
+
+    const handleProviderLogin = () => {
+        signUpProvider(navigate);
+    }
     
     return(
         <div className="d-flex justify-content-center">
